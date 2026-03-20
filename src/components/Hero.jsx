@@ -33,7 +33,7 @@ export default function Hero() {
     scrollTrigger: {
       trigger: sectionRef.current,
       start: "top top",
-      end: "+=150%",
+      end: "+=120%",
       scrub: 1,
       pin: true,
       pinSpacing: true,
@@ -46,6 +46,11 @@ export default function Hero() {
     ease: "none",
   });
 
+  tl.to(document.body, {
+      backgroundPosition: "50% 100%",
+      ease: "none",
+    }, 0);
+
     }, sectionRef);
 
      return () => ctx.revert();
@@ -54,7 +59,7 @@ export default function Hero() {
   const text = "WELCOME ITZFIZZ";
 
   return (
-    <section ref={sectionRef} className="h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-black to-gray-900 text-white overflow-hidden relative bg-black">
+    <section ref={sectionRef} className=" h-screen w-full flex flex-col items-center justify-center  text-white overflow-hidden relative ">
 
       {/* Headline */}
       <h1 className="text-4xl md:text-6xl tracking-[0.2em] flex flex-wrap justify-center font-semibold">
@@ -73,8 +78,8 @@ export default function Hero() {
       <div className="flex gap-10 mt-10">
         {["90% Growth", "120% ROI", "80% Retention"].map((item, i) => (
           <div key={i} ref={(el) => {
-  if (el && !lettersRef.current.includes(el)) {
-    lettersRef.current.push(el);
+  if (el && !statsRef.current.includes(el)) {
+    statsRef.current.push(el);
   }
 }}>
             <h2 className="text-3xl font-bold">{item.split(" ")[0]}</h2>
@@ -84,7 +89,7 @@ export default function Hero() {
       </div>
 
       {/*Glow*/}
-      <div className="absolute w-[400px] h-[400px] bg-blue-500 blur-3xl opacity-20 rounded-full bottom-0"></div>
+      {/* <div className="absolute w-[400px] h-[400px] bg-blue-500 blur-3xl opacity-20 rounded-full bottom-0"></div> */}
 
       {/*Image */}
       <img
